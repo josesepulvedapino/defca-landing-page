@@ -23,9 +23,9 @@ export function ScanAnimation() {
   }
 
   return (
-    <div className="relative w-full max-w-md mx-auto aspect-[3/4] bg-gradient-to-br from-muted to-muted/50 rounded-3xl shadow-2xl overflow-hidden">
+    <div className="relative w-full max-w-[280px] sm:max-w-sm md:max-w-md mx-auto aspect-[3/4] bg-gradient-to-br from-muted to-muted/50 rounded-3xl shadow-2xl overflow-visible">
       {/* Phone mockup */}
-      <div className="absolute inset-4 bg-background rounded-2xl overflow-hidden">
+      <div className="absolute inset-3 sm:inset-4 bg-background rounded-2xl overflow-hidden">
         {/* Leaf image */}
         <div className="relative w-full h-full flex items-center justify-center bg-gradient-to-br from-green-50 to-amber-50 overflow-hidden">
           {/* Floating background particles */}
@@ -58,7 +58,7 @@ export function ScanAnimation() {
           />
 
           <motion.div
-            className="relative w-48 h-48"
+            className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48"
             animate={
               scanState === "scanning"
                 ? { scale: [1, 1.05, 1] }
@@ -258,7 +258,7 @@ export function ScanAnimation() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute -bottom-16 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-6 py-3 rounded-full text-sm font-medium whitespace-nowrap shadow-lg"
+                  className="absolute -bottom-12 sm:-bottom-16 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap shadow-lg"
                 >
                   Analizando...
                 </motion.div>
@@ -270,9 +270,9 @@ export function ScanAnimation() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8 }}
-                  className="absolute -top-40 left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-full text-sm font-bold whitespace-nowrap shadow-lg flex items-center gap-2"
+                  className="absolute -top-16 sm:-top-20 md:-top-24 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-base sm:text-lg md:text-xl font-bold whitespace-nowrap shadow-2xl flex items-center gap-2 z-50"
                 >
-                  <CheckCircle className="w-5 h-5" />
+                  <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6" />
                   Planta Sana
                 </motion.div>
               )}
@@ -283,25 +283,25 @@ export function ScanAnimation() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute -top-40 left-1/2 -translate-x-1/2 w-64"
+                  className="absolute -top-24 sm:-top-32 md:-top-36 left-1/2 -translate-x-1/2 w-[75vw] max-w-[240px] sm:max-w-xs md:max-w-sm z-50"
                 >
-                  <div className="bg-red-500 text-white px-4 py-3 rounded-2xl shadow-2xl">
-                    <div className="flex items-center gap-2 mb-2">
-                      <AlertCircle className="w-5 h-5" />
-                      <span className="font-bold text-sm">Enfermedad Detectada</span>
+                  <div className="bg-red-500 text-white px-2 sm:px-4 py-2 sm:py-4 rounded-xl sm:rounded-2xl shadow-2xl">
+                    <div className="flex items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
+                      <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex-shrink-0" />
+                      <span className="font-bold text-xs sm:text-sm md:text-base">Enfermedad Detectada</span>
                     </div>
-                    <div className="text-xs space-y-1 bg-red-600/50 rounded-lg p-2">
-                      <div className="flex justify-between">
-                        <span>Tipo:</span>
-                        <span className="font-semibold">Tizón del avellano</span>
+                    <div className="text-[10px] sm:text-xs md:text-sm space-y-0.5 sm:space-y-1 bg-red-600/50 rounded-lg p-1.5 sm:p-2 md:p-3">
+                      <div className="flex justify-between gap-1 sm:gap-2">
+                        <span className="text-[10px] sm:text-xs">Tipo:</span>
+                        <span className="font-semibold text-right text-[10px] sm:text-xs">Tizón del avellano</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span>Confianza:</span>
-                        <span className="font-semibold">92%</span>
+                      <div className="flex justify-between gap-1 sm:gap-2">
+                        <span className="text-[10px] sm:text-xs">Confianza:</span>
+                        <span className="font-semibold text-[10px] sm:text-xs">92%</span>
                       </div>
-                      <div className="flex justify-between">
-                        <span>Severidad:</span>
-                        <span className="font-semibold">Media</span>
+                      <div className="flex justify-between gap-1 sm:gap-2">
+                        <span className="text-[10px] sm:text-xs">Severidad:</span>
+                        <span className="font-semibold text-[10px] sm:text-xs">Media</span>
                       </div>
                     </div>
                   </div>
@@ -313,12 +313,12 @@ export function ScanAnimation() {
 
         {/* Scan button */}
         <motion.button
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 w-16 h-16 bg-primary rounded-full shadow-lg flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary rounded-full shadow-lg flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           whileTap={{ scale: 0.9 }}
           onClick={handleScan}
           disabled={scanState !== "idle"}
         >
-          <div className="w-12 h-12 border-4 border-primary-foreground rounded-full" />
+          <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 border-3 sm:border-4 border-primary-foreground rounded-full" />
         </motion.button>
       </div>
     </div>

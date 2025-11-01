@@ -56,19 +56,19 @@ export function About() {
   const { ref, isInView } = useInView({ threshold: 0.1 })
 
   return (
-    <section ref={ref} className="py-32 bg-background">
+    <section ref={ref} className="py-16 sm:py-24 md:py-32 bg-background">
       <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center mb-20"
+          className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">
             Nacimos en el Campo, <span className="text-primary">para el Campo</span>
           </h2>
-          <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
             DEFCA surge desde la Región de Ñuble, entendiendo de primera mano los desafíos reales que enfrentan los
             productores agrícolas chilenos.
           </p>

@@ -13,19 +13,19 @@ export function Hero() {
   }
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background to-muted/20 pt-16">
-      <div className="container mx-auto px-4 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-4 py-12 sm:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8"
+            className="space-y-6 sm:space-y-8 text-center lg:text-left"
           >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-balance">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-balance">
               La Salud de sus Avellanos, <span className="text-primary">en sus Manos</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground text-pretty leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground text-pretty leading-relaxed">
               DEFCA: La plataforma inteligente que detecta enfermedades foliares con su celular. Rápida, confiable y
               diseñada para el campo chileno.
             </p>
@@ -36,7 +36,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button size="lg" className="text-lg px-8 py-6 h-auto" >
+                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto w-full sm:w-auto" >
                   Solicitar Acceso
                 </Button>
               </a>
@@ -47,7 +47,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative"
+            className="relative flex justify-center"
           >
             <ScanAnimation />
           </motion.div>

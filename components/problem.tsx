@@ -27,43 +27,43 @@ export function Problem() {
   const { ref, isInView } = useInView({ threshold: 0.2 })
 
   return (
-    <section ref={ref} className="py-32 bg-muted/30">
+    <section ref={ref} className="py-16 sm:py-24 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center mb-20"
+          className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 md:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-balance">
             El Manejo Fitosanitario Tradicional Ya No es Suficiente
           </h2>
-          <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">
             Proteger su inversión en avellanos es un desafío constante. El manejo de enfermedades enfrenta hoy una
             triple barrera:
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {barriers.map((barrier, index) => (
             <motion.div
               key={barrier.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-background rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-background rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow"
             >
               <motion.div
                 initial={{ scale: 0 }}
                 animate={isInView ? { scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-                className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6"
               >
-                <barrier.icon className="w-8 h-8 text-primary" />
+                <barrier.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
               </motion.div>
 
-              <h3 className="text-2xl font-bold mb-4">{barrier.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{barrier.description}</p>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{barrier.title}</h3>
+              <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{barrier.description}</p>
             </motion.div>
           ))}
         </div>

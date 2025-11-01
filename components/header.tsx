@@ -20,16 +20,16 @@ export function Header() {
       className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/40"
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 gap-2">
           {/* Logo */}
           <motion.button
             onClick={() => scrollToSection("hero")}
-            className="flex items-center gap-2 group cursor-pointer"
+            className="flex items-center gap-2 group cursor-pointer flex-shrink-0"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="relative w-10 h-10 bg-primary rounded-xl flex items-center justify-center group-hover:shadow-lg transition-shadow">
-              <Leaf className="w-6 h-6 text-primary-foreground" strokeWidth={2.5} />
+            <div className="relative w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center group-hover:shadow-lg transition-shadow">
+              <Leaf className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" strokeWidth={2.5} />
               <motion.div
                 className="absolute inset-0 bg-primary/20 rounded-xl"
                 initial={{ scale: 0 }}
@@ -38,8 +38,8 @@ export function Header() {
               />
             </div>
             <div className="flex flex-col items-start">
-              <span className="text-xl font-bold tracking-tight">DEFCA</span>
-              <span className="text-[10px] text-muted-foreground -mt-1">Sistema de gestión fitosanitario</span>
+              <span className="text-lg sm:text-xl font-bold tracking-tight">DEFCA</span>
+              <span className="text-[10px] text-muted-foreground -mt-1 hidden sm:block">Sistema de gestión fitosanitario</span>
             </div>
           </motion.button>
 
@@ -69,6 +69,7 @@ export function Header() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.4 }}
+            className="flex-shrink-0"
           >
             <a
               href="https://wa.me/56926873545"
@@ -77,9 +78,10 @@ export function Header() {
             >
               <Button
                 size="sm"
-                className="shadow-sm hover:shadow-md transition-shadow"
+                className="shadow-sm hover:shadow-md transition-shadow text-xs sm:text-sm px-3 sm:px-4"
               >
-                Solicitar Acceso
+                <span className="hidden sm:inline">Solicitar Acceso</span>
+                <span className="sm:hidden">Solicitar</span>
               </Button>
             </a>
           </motion.div>
