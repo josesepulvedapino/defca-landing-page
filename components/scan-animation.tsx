@@ -27,14 +27,211 @@ export function ScanAnimation() {
       {/* Phone mockup */}
       <div className="absolute inset-4 bg-background rounded-2xl overflow-hidden">
         {/* Leaf image */}
-        <div className="relative w-full h-full flex items-center justify-center bg-gradient-to-br from-green-50 to-amber-50">
+        <div className="relative w-full h-full flex items-center justify-center bg-gradient-to-br from-green-50 to-amber-50 overflow-hidden">
+          {/* Floating background particles */}
+          <motion.div
+            className="absolute top-10 left-10 w-2 h-2 bg-primary/20 rounded-full"
+            animate={{
+              y: [0, -20, 0],
+              x: [0, 10, 0],
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-16 w-3 h-3 bg-green-400/30 rounded-full"
+            animate={{
+              y: [0, 15, 0],
+              x: [0, -8, 0],
+              opacity: [0.4, 0.7, 0.4],
+            }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+          <motion.div
+            className="absolute top-32 right-12 w-2 h-2 bg-amber-400/25 rounded-full"
+            animate={{
+              y: [0, -15, 0],
+              x: [0, -12, 0],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          />
+
           <motion.div
             className="relative w-48 h-48"
-            animate={scanState === "scanning" ? { scale: [1, 1.05, 1] } : {}}
-            transition={{ duration: 2 }}
+            animate={
+              scanState === "scanning"
+                ? { scale: [1, 1.05, 1] }
+                : {
+                    y: [0, -8, 0],
+                    rotate: [0, 2, 0, -2, 0],
+                  }
+            }
+            transition={
+              scanState === "scanning"
+                ? { duration: 2 }
+                : { duration: 6, repeat: Infinity, ease: "easeInOut" }
+            }
           >
-            {/* Leaf placeholder */}
-            <div className="w-full h-full bg-gradient-to-br from-green-600 to-green-800 rounded-full opacity-20" />
+            {/* Realistic Leaf SVG */}
+            <svg
+              viewBox="0 0 200 200"
+              className="w-full h-full drop-shadow-2xl"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Leaf shape */}
+              <defs>
+                <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{ stopColor: "#059669", stopOpacity: 1 }} />
+                  <stop offset="50%" style={{ stopColor: "#10b981", stopOpacity: 1 }} />
+                  <stop offset="100%" style={{ stopColor: "#047857", stopOpacity: 1 }} />
+                </linearGradient>
+                <filter id="leafShadow">
+                  <feDropShadow dx="0" dy="4" stdDeviation="3" floodOpacity="0.3" />
+                </filter>
+              </defs>
+
+              {/* Main leaf body */}
+              <ellipse
+                cx="100"
+                cy="100"
+                rx="70"
+                ry="85"
+                fill="url(#leafGradient)"
+                filter="url(#leafShadow)"
+              />
+
+              {/* Central vein */}
+              <line
+                x1="100"
+                y1="20"
+                x2="100"
+                y2="180"
+                stroke="#047857"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+
+              {/* Side veins */}
+              <path
+                d="M 100 40 Q 75 50, 60 70"
+                stroke="#047857"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+              <path
+                d="M 100 40 Q 125 50, 140 70"
+                stroke="#047857"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+              <path
+                d="M 100 70 Q 70 80, 55 100"
+                stroke="#047857"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+              <path
+                d="M 100 70 Q 130 80, 145 100"
+                stroke="#047857"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+              <path
+                d="M 100 100 Q 75 110, 60 130"
+                stroke="#047857"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+              <path
+                d="M 100 100 Q 125 110, 140 130"
+                stroke="#047857"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+              <path
+                d="M 100 130 Q 80 140, 70 160"
+                stroke="#047857"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+              <path
+                d="M 100 130 Q 120 140, 130 160"
+                stroke="#047857"
+                strokeWidth="1.5"
+                fill="none"
+                strokeLinecap="round"
+                opacity="0.7"
+              />
+
+              {/* Subtle highlights */}
+              <ellipse
+                cx="80"
+                cy="60"
+                rx="15"
+                ry="20"
+                fill="white"
+                opacity="0.15"
+              />
+              <ellipse
+                cx="120"
+                cy="90"
+                rx="12"
+                ry="15"
+                fill="white"
+                opacity="0.1"
+              />
+
+              {/* Disease spots (only visible when diseased) */}
+              {scanState === "diseased" && (
+                <>
+                  <motion.circle
+                    cx="75"
+                    cy="80"
+                    r="8"
+                    fill="#78350f"
+                    opacity="0.6"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2 }}
+                  />
+                  <motion.circle
+                    cx="120"
+                    cy="110"
+                    r="6"
+                    fill="#78350f"
+                    opacity="0.5"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.3 }}
+                  />
+                  <motion.circle
+                    cx="95"
+                    cy="140"
+                    r="7"
+                    fill="#78350f"
+                    opacity="0.55"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.4 }}
+                  />
+                </>
+              )}
+            </svg>
 
             {/* Scanning effect */}
             {scanState === "scanning" && (

@@ -33,28 +33,40 @@ export function AIAssistant() {
                 <MessageSquare className="w-5 h-5 text-primary-foreground" />
               </div>
               <div className="flex-1">
-                <div className="bg-primary/10 rounded-2xl rounded-tl-none p-4">
-                  <p className="text-sm font-medium mb-2">Alerta Preventiva</p>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={showMessage ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="bg-primary/10 rounded-2xl rounded-tl-none p-4"
+                >
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={showMessage ? { opacity: 1 } : { opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                    className="text-sm font-medium mb-2"
+                  >
+                    Alerta Preventiva
+                  </motion.p>
                   {showMessage && (
                     <motion.p
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 1 }}
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
                       className="text-sm text-muted-foreground leading-relaxed"
                     >
                       Se pronostican lluvias para los próximos 3 días en su zona. Riesgo alto de Phytophthora.
                       Recomendamos inspección preventiva en sectores bajos.
                     </motion.p>
                   )}
-                </div>
+                </motion.div>
               </div>
             </div>
 
             {showMessage && (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5 }}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.3, duration: 0.5, ease: "easeOut" }}
                 className="flex justify-end"
               >
                 <div className="bg-primary text-primary-foreground rounded-2xl rounded-tr-none p-4 max-w-[80%]">
