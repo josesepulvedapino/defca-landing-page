@@ -19,7 +19,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-6 sm:space-y-8 text-center lg:text-left"
+            className="space-y-6 sm:space-y-8 text-center lg:text-left order-1 lg:order-1"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-balance">
               La Salud de sus Avellanos, <span className="text-primary">en sus Manos</span>
@@ -30,7 +30,12 @@ export function Hero() {
               diseñada para el campo chileno.
             </p>
 
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.6 }}>
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="hidden lg:block"
+            >
               <a
                 href="https://wa.me/56926873545"
                 target="_blank"
@@ -47,9 +52,28 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="relative flex justify-center"
+            className="relative flex justify-center order-2 lg:order-2"
           >
             <ScanAnimation />
+          </motion.div>
+
+          {/* Botón móvil debajo del tablet */}
+          <motion.div 
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="lg:hidden order-3 flex justify-center"
+          >
+            <a
+              href="https://wa.me/56926873545"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full max-w-xs"
+            >
+              <Button size="lg" className="w-full h-10 px-5 text-sm">
+                Solicitar Acceso
+              </Button>
+            </a>
           </motion.div>
         </div>
       </div>
