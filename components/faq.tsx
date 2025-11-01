@@ -46,7 +46,7 @@ const faqs: FAQItem[] = [
 
 export function FAQ() {
   const { ref, isInView } = useInView({ threshold: 0.1 })
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
     <section ref={ref} className="py-32 bg-muted/30">
