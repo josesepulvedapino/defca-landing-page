@@ -313,10 +313,18 @@ export function ScanAnimation() {
 
         {/* Scan button */}
         <motion.button
-          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary rounded-full shadow-lg flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary rounded-full shadow-lg flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation active:scale-90"
           whileTap={{ scale: 0.9 }}
           onClick={handleScan}
+          onTouchEnd={(e) => {
+            if (scanState === "idle") {
+              e.preventDefault()
+              handleScan()
+            }
+          }}
           disabled={scanState !== "idle"}
+          type="button"
+          aria-label="Escanear hoja"
         >
           <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 border-3 sm:border-4 border-primary-foreground rounded-full" />
         </motion.button>
