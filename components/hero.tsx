@@ -56,25 +56,6 @@ export function Hero() {
           >
             <ScanAnimation />
           </motion.div>
-
-          {/* Botón móvil debajo del tablet */}
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="lg:hidden order-3 flex justify-center"
-          >
-            <a
-              href="https://wa.me/56926873545"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full max-w-xs"
-            >
-              <Button size="lg" className="w-full h-10 px-5 text-sm">
-                Solicitar Acceso
-              </Button>
-            </a>
-          </motion.div>
         </div>
       </div>
 
