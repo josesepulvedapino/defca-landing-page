@@ -1,0 +1,6 @@
+# robots.txt para DEFCA
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://defca.app/sitemap.xml
