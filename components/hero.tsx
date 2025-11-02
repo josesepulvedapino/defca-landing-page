@@ -34,14 +34,17 @@ export function Hero() {
               initial={{ opacity: 0 }} 
               animate={{ opacity: 1 }} 
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="hidden lg:block"
+              className="hidden lg:block relative z-10"
             >
               <a
                 href="https://wa.me/56926873545"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto w-full sm:w-auto" >
+                <Button 
+                  size="lg" 
+                  className="shadow-sm hover:shadow-md transition-shadow text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 h-auto w-full sm:w-auto"
+                >
                   Solicitar Acceso
                 </Button>
               </a>
@@ -59,7 +62,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
   )
 }

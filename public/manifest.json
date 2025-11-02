@@ -1,17 +1,52 @@
 {
-  "name": "DEFCA - Sistema de Gestión Fitosanitaria",
+  "name": "DEFCA - Detección de Enfermedades del Avellano con IA",
   "short_name": "DEFCA",
-  "description": "Sistema de gestión fitosanitaria con IA para avellanos",
+  "description": "Detecte enfermedades del avellano en segundos con inteligencia artificial. Diagnóstico instantáneo, mapeo de salud y recomendaciones de tratamiento.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#F0EDE4",
   "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "lang": "es-CL",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "agriculture"],
   "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Características",
+      "short_name": "Features",
+      "description": "Ver características de DEFCA",
+      "url": "/#caracteristicas",
+      "icons": [{ "src": "/logo.jpg", "sizes": "192x192" }]
+    },
+    {
+      "name": "Roadmap",
+      "short_name": "Roadmap",
+      "description": "Ver hoja de ruta de desarrollo",
+      "url": "/#roadmap",
+      "icons": [{ "src": "/logo.jpg", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
     }
   ]
 }

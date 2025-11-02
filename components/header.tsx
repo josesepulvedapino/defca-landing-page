@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Leaf } from "lucide-react"
+import Image from "next/image"
 
 export function Header() {
   const scrollToSection = (id: string) => {
@@ -28,13 +28,13 @@ export function Header() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="relative w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded-xl flex items-center justify-center group-hover:shadow-lg transition-shadow">
-              <Leaf className="w-5 h-5 sm:w-6 sm:h-6 text-primary-foreground" strokeWidth={2.5} />
-              <motion.div
-                className="absolute inset-0 bg-primary/20 rounded-xl"
-                initial={{ scale: 0 }}
-                animate={{ scale: [0, 1.2, 0] }}
-                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-lg overflow-hidden group-hover:shadow-lg transition-shadow">
+              <Image
+                src="/logo.jpg"
+                alt="DEFCA Logo"
+                fill
+                className="object-cover"
+                priority
               />
             </div>
             <div className="flex flex-col items-start">
