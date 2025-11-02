@@ -34,7 +34,7 @@ export function AIDetection() {
         transition={{ duration: 0.8 }}
         className="relative"
       >
-        <div className="relative bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl p-8 aspect-square flex items-center justify-center">
+        <div className="relative bg-gradient-to-br from-primary/15 to-primary/5 rounded-3xl p-8 aspect-square flex items-center justify-center">
           <motion.div
             animate={
               isInView

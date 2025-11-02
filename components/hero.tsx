@@ -12,7 +12,7 @@ export function Hero() {
     }
   }
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background to-muted/20 pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-muted/30 pt-16">
       <div className="container mx-auto px-4 py-12 sm:py-20">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
@@ -22,12 +22,12 @@ export function Hero() {
             className="space-y-6 sm:space-y-8 text-center lg:text-left order-1 lg:order-1"
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight text-balance">
-              La Salud de sus Avellanos, <span className="text-primary">en sus Manos</span>
+              Detecte Enfermedades del Avellano <span className="text-primary">con IA en Segundos</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground text-pretty leading-relaxed">
-              DEFCA: La plataforma inteligente que detecta enfermedades foliares con su celular. Rápida, confiable y
-              diseñada para el campo chileno.
+              Tome una foto con su celular y obtenga un diagnóstico instantáneo impulsado por Inteligencia Artificial. 
+              DEFCA identifica enfermedades foliares, mapea la salud de su predio y le da recomendaciones precisas para actuar.
             </p>
 
             <motion.div 

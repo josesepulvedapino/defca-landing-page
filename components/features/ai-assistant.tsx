@@ -26,7 +26,7 @@ export function AIAssistant() {
         transition={{ duration: 0.8 }}
         className="relative order-2 lg:order-1"
       >
-        <div className="bg-gradient-to-br from-background to-muted rounded-3xl p-8 shadow-xl">
+        <div className="bg-gradient-to-br from-muted/80 to-muted rounded-3xl p-8 shadow-xl">
           <div className="space-y-4">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center flex-shrink-0">

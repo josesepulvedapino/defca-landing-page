@@ -77,7 +77,7 @@ export function OfflineFirst() {
         transition={{ duration: 0.8 }}
         className="relative order-2"
       >
-        <div className="relative bg-gradient-to-br from-background to-muted rounded-3xl p-12 aspect-square flex items-center justify-center">
+        <div className="relative bg-gradient-to-br from-muted/80 to-muted rounded-3xl p-12 aspect-square flex items-center justify-center">
           <motion.div
             animate={isSynced ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }}
             transition={{ duration: 0.5 }}

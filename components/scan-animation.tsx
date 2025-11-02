@@ -1,7 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { AlertCircle, CheckCircle } from "lucide-react"
 
 type ScanState = "idle" | "scanning" | "healthy" | "diseased"
@@ -22,8 +22,29 @@ export function ScanAnimation() {
     }, 2500)
   }
 
+  // Loop automático
+  useEffect(() => {
+    // Iniciar el primer ciclo después de 2 segundos
+    const initialTimeout = setTimeout(() => {
+      handleScan()
+    }, 2000)
+
+    return () => clearTimeout(initialTimeout)
+  }, [])
+
+  useEffect(() => {
+    // Cuando vuelve a idle, esperar 3 segundos y volver a escanear
+    if (scanState === "idle") {
+      const loopTimeout = setTimeout(() => {
+        handleScan()
+      }, 3000)
+
+      return () => clearTimeout(loopTimeout)
+    }
+  }, [scanState])
+
   return (
-    <div className="relative w-full max-w-[280px] sm:max-w-sm md:max-w-md mx-auto aspect-[3/4] bg-gradient-to-br from-muted to-muted/50 rounded-3xl shadow-2xl overflow-visible">
+    <div className="relative w-full max-w-[280px] sm:max-w-sm md:max-w-md mx-auto aspect-[3/4] bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl shadow-2xl overflow-visible">
       {/* Phone mockup */}
       <div className="absolute inset-3 sm:inset-4 bg-background rounded-2xl overflow-hidden">
         {/* Leaf image */}
@@ -255,10 +276,10 @@ export function ScanAnimation() {
               {scanState === "scanning" && (
                 <motion.div
                   key="scanning"
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="absolute -bottom-12 sm:-bottom-16 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap shadow-lg"
+                  className="absolute -top-16 sm:-top-20 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium whitespace-nowrap shadow-lg z-50"
                 >
                   Analizando...
                 </motion.div>
@@ -312,22 +333,13 @@ export function ScanAnimation() {
         </div>
 
         {/* Scan button */}
-        <motion.button
-          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary rounded-full shadow-lg flex items-center justify-center cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation active:scale-90"
-          whileTap={{ scale: 0.9 }}
-          onClick={handleScan}
-          onTouchEnd={(e) => {
-            if (scanState === "idle") {
-              e.preventDefault()
-              handleScan()
-            }
-          }}
-          disabled={scanState !== "idle"}
-          type="button"
-          aria-label="Escanear hoja"
+        <motion.div
+          className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary rounded-full shadow-lg flex items-center justify-center"
+          animate={scanState === "scanning" ? { scale: [1, 0.95, 1] } : { scale: 1 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 border-3 sm:border-4 border-primary-foreground rounded-full" />
-        </motion.button>
+        </motion.div>
       </div>
     </div>
   )

@@ -85,7 +85,7 @@ export function ReportsAnalytics() {
 
       <div className="relative order-2">
         <motion.div
-          className="bg-gradient-to-br from-muted to-muted/50 rounded-2xl p-8 shadow-xl"
+          className="bg-gradient-to-br from-muted/90 to-muted/70 rounded-2xl p-8 shadow-xl"
           animate={selectedReport ? { scale: 1.02 } : { scale: 1 }}
           transition={{ duration: 0.3 }}
         >

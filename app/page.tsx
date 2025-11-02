@@ -6,6 +6,7 @@ import { Problem } from "@/components/problem"
 import { Solution } from "@/components/solution"
 import { About } from "@/components/about"
 import { Features } from "@/components/features"
+import { Team } from "@/components/team"
 import { Roadmap } from "@/components/roadmap"
 import { FAQ } from "@/components/faq"
 import { CTA } from "@/components/cta"
@@ -30,6 +31,9 @@ export default function Home() {
         </section>
         <section id="features">
           <Features />
+        </section>
+        <section id="team">
+          <Team />
         </section>
         <section id="roadmap">
           <Roadmap />

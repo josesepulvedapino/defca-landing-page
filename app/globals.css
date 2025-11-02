@@ -117,17 +117,18 @@
 @theme inline {
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 
-  --color-background: #ffffff;
-  --color-foreground: #0a0a0a;
+  /* Tema Beige/Hueso - Color principal */
+  --color-background: #F0EDE4;
+  --color-foreground: #1a1a1a;
 
-  --color-muted: #f5f5f5;
-  --color-muted-foreground: #737373;
+  --color-muted: #E3DED3;
+  --color-muted-foreground: #4a4a3a;
 
   --color-primary: #10b981;
   --color-primary-foreground: #ffffff;
 
-  --color-border: #e5e5e5;
-  --color-input: #e5e5e5;
+  --color-border: #D0CBC0;
+  --color-input: #D0CBC0;
   --color-ring: #10b981;
 
   --radius: 0.75rem;
@@ -135,17 +136,18 @@
 
 @media (prefers-color-scheme: dark) {
   @theme inline {
-    --color-background: #0a0a0a;
-    --color-foreground: #fafafa;
+    /* Forzar tema beige incluso en modo oscuro */
+    --color-background: #F0EDE4;
+    --color-foreground: #1a1a1a;
 
-    --color-muted: #1a1a1a;
-    --color-muted-foreground: #a3a3a3;
+    --color-muted: #E3DED3;
+    --color-muted-foreground: #4a4a3a;
 
     --color-primary: #10b981;
     --color-primary-foreground: #ffffff;
 
-    --color-border: #262626;
-    --color-input: #262626;
+    --color-border: #D0CBC0;
+    --color-input: #D0CBC0;
     --color-ring: #10b981;
   }
 }
@@ -177,12 +179,12 @@ body {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #10b981 #f5f5f5;
+  scrollbar-color: #10b981 #F0EDE4;
 }
 
 @media (prefers-color-scheme: dark) {
   * {
-    scrollbar-color: #10b981 #1a1a1a;
+    scrollbar-color: #10b981 #F0EDE4;
   }
 }
 
@@ -193,26 +195,26 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f5f5;
+  background: #F0EDE4;
   border-radius: 10px;
 }
 
 @media (prefers-color-scheme: dark) {
   ::-webkit-scrollbar-track {
-    background: #1a1a1a;
+    background: #F0EDE4;
   }
 }
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #10b981 0%, #059669 100%);
   border-radius: 10px;
-  border: 2px solid #f5f5f5;
+  border: 2px solid #F0EDE4;
   transition: all 0.3s ease;
 }
 
 @media (prefers-color-scheme: dark) {
   ::-webkit-scrollbar-thumb {
-    border-color: #1a1a1a;
+    border-color: #F0EDE4;
   }
 }
 
@@ -227,11 +229,11 @@ body {
 
 /* Scrollbar corner (where horizontal and vertical scrollbars meet) */
 ::-webkit-scrollbar-corner {
-  background: #f5f5f5;
+  background: #F0EDE4;
 }
 
 @media (prefers-color-scheme: dark) {
   ::-webkit-scrollbar-corner {
-    background: #1a1a1a;
+    background: #F0EDE4;
   }
 }

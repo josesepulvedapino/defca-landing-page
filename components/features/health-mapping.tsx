@@ -44,7 +44,7 @@ export function HealthMapping() {
         transition={{ duration: 0.8 }}
         className="relative order-2 lg:order-1"
       >
-        <div className="relative bg-gradient-to-br from-background to-muted rounded-3xl p-8 aspect-square">
+        <div className="relative bg-gradient-to-br from-muted/80 to-muted rounded-3xl p-8 aspect-square">
           <div className="grid grid-cols-5 gap-2 h-full">
             {gridCells.map((cell) => (
               <motion.button

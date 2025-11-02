@@ -12,7 +12,7 @@ export function Features() {
   const { ref, isInView } = useInView({ threshold: 0.1 })
 
   return (
-    <section ref={ref} className="py-16 sm:py-24 md:py-32 bg-muted/30">
+    <section ref={ref} className="py-16 sm:py-24 md:py-32 bg-muted/50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
